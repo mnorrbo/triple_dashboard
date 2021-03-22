@@ -26,30 +26,16 @@ range_of_sums <- df %>%
 year_obs <- df %>% 
   separate(Date, into = c("month", "year")) %>% 
   group_by(year) %>% 
-  summarise(n()) # 2004 does not, contains 6
-
-# Re-scaling percentages for JavaScript, Python & R ------------------------
-
-# NOTE: May want to keep all languages for interactivity in Shiny app
-# For now, just the 3 languages
-
-df_subset <- df %>% 
-  select(Date, JavaScript, Python, R) %>%
-  pivot_longer(
-    names_to = "language",
-    values_to = "popularity",
-    cols = JavaScript:R) %>%
-  group_by(Date) %>% 
-  mutate(
-    date_total = sum(popularity)
-    ) %>% 
-  group_by(Date, language) %>%
-  summarise(relative_perc = popularity/date_total)
+  summarise(n()) # 2004 does not, contains 6 - remove
 
 
 # Create Year and Month columns -------------------------------------------
 
-df_subset_clean <- df_subset %>% 
+df_clean <- df %>% 
+  pivot_longer(
+        names_to = "language",
+        values_to = "popularity",
+        cols = Abap:`Visual Basic`) %>% 
   separate(Date, 
            into = c("Month", "Year"),
            remove = F) %>% 
@@ -59,7 +45,7 @@ df_subset_clean <- df_subset %>%
 
 # Write clean dataset -----------------------------------------------------
 
-write_csv(df_subset_clean, "../app/clean_data/js_py_r_popularity.csv") 
+write_csv(df_clean, "../app/clean_data/js_py_r_popularity.csv") 
 
 
 # Clear all objects from Global Environment -------------------------------
