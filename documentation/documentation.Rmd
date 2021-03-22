@@ -1,0 +1,20 @@
+---
+title: "`Triple Dashboard` Shiny App - Documentation"
+author: "Mandy Norrbo"
+date: "22/03/2021"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+# Dependencies and session info
+```{r dependencies, echo = FALSE}
+sessionInfo()
+```
+
