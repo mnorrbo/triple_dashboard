@@ -1,14 +1,71 @@
-// !preview r2d3 data=c(0.3, 0.6, 0.8, 0.95, 0.40, 0.20)
-//
-// r2d3: https://rstudio.github.io/r2d3
-//
+var margin = {top: 20, right: 20, bottom: 30, left: 100};
 
-var barHeight = Math.ceil(height / data.length);
+var lifted = height - margin.top- margin.bottom;
 
-svg.selectAll('rect')
-  .data(data)
-  .enter().append('rect')
-    .attr('width', function(d) { return d * width; })
-    .attr('height', barHeight)
-    .attr('y', function(d, i) { return i * barHeight; })
-    .attr('fill', 'steelblue');
+//var shifted = width - margin.left - margin.right;
+
+var bars = r2d3.svg.selectAll('rect')
+    .data(r2d3.data);
+    
+var labels = r2d3.svg.selectAll("text")
+    .data(r2d3.data);
+
+var x = d3.scaleLinear().rangeRound([margin.left, width - margin.right]);
+
+//var languages = []
+
+//for(language in data.language){
+  //languages.push(language);}
+
+
+x.domain([0, 1]);
+//Math.max(data, function(d) { return d.relative_perc; })
+//svg.append("g")
+    //.attr("class", "axis axis--x")
+    //.attr("transform", "translate(0," + height + ")")
+    //.call(d3.axisBottom(x));
+
+bars.enter()
+    .append('rect')
+      .attr("x", margin.left)
+      .attr('width', function(d) { return x(d.relative_perc); })
+      .attr('height', function(d) { return Math.floor(lifted / data.length) - 5; })
+      .attr('y', function(d, i) { return i * Math.floor(lifted / data.length); })
+      .attr('fill', 'steelblue');
+      
+//bars.append("text")
+//    .text(function(d) { 
+//        return d.language;
+//    })
+//    .attr("y", function(d, i) { return i * Math.floor(lifted / data.length); });
+      
+
+bars.transition()
+  .duration(100)
+  .attr("width", function(d) { return x(d.relative_perc); })
+  .attr("height", function(d) { return Math.floor(lifted / data.length) - 5; })
+  .attr("y", function(d, i) { return i * Math.floor(lifted / data.length); });
+  
+bars.exit().remove();
+  
+labels.enter()
+    .append("text")
+      .attr("x", 0)
+      .attr("y", function(d, i) { return i * Math.floor(lifted/data.length) + (Math.floor(lifted/data.length) / 2); })
+      .text(function(d) { return d.language})
+      
+labels.transition()
+  .duration(100)
+  .attr("y", function(d, i) { return i * Math.floor(lifted/data.length) + (Math.floor(lifted/data.length) / 2); })
+  .text(function(d) { return d.language});
+  
+labels.exit().remove();
+
+//svg.append("g")
+//    .attr("class", "axis axis--x")
+//    .attr("transform", "translate(0," + lifted + ")")
+//    .call(d3.axisBottom(x).ticks(5));
+
+//function(d, i) { return i * Math.floor(lifted / data.length); }
+
+    

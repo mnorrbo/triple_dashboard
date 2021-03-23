@@ -6,9 +6,10 @@ library(shiny)
 library(readr)
 library(dplyr)
 library(ggplot2)
-library(reticulate)
-sns <- import("seaborn")
-pd <- import("pandas")
+library(r2d3)
+# library(reticulate)
+# sns <- import("seaborn")
+# pd <- import("pandas")
 
 # Data --------------------------------------------------------------------
 

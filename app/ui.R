@@ -40,9 +40,10 @@ ui <- fluidPage(
         choices = c("ggplot", "seaborn", "D3")
       ),
       
-      plotOutput(
-        "ggplot_plot"
-      )
+      
+      plotOutput("ggplot_plot"),
+      
+      d3Output("d3")
     )
   )
 )
