@@ -2,11 +2,13 @@
 
 
 server <- function(input, output) {
-  
-# Reactive relative percentages ------------------------
-  filtered_data <- reactive({
+
+
+# Data for bar plots ------------------------------------------------------
+
+  filtered_bar_data <- reactive({
     popularity_df %>%
-      filter(language %in% input$popularity_lang,
+    filter(language %in% input$popularity_lang,
              year == "2020", 
              month == "December") %>% 
     group_by(year, month) %>%
@@ -21,19 +23,43 @@ server <- function(input, output) {
   })
   
 
-output$ggplot_plot <- renderPlot({
-    filtered_data() %>% 
-    make_plot()
+# Render bar plots --------------------------------------------------------
+
+
+output$ggplot_barplot <- renderPlot({
+    filtered_bar_data() %>% 
+    make_barplot()
     
     })
   
   output$d3 <- renderD3({
     r2d3(
-      data = filtered_data(),
+      data = filtered_bar_data(),
       script = "plots/d3_plots.js"
     )
   })
+
+
+# Data for line plots -----------------------------------------------------
+
+filtered_line_data <- reactive({ popularity_df %>% 
+    filter(language %in% input$popularity_lang) %>% 
+    group_by(language, year) %>% 
+    summarise(mean_yearly_pop = mean(popularity)/100, .groups = "keep") %>% 
+    ungroup()
+})
   
+  
+
+# Render line plots -------------------------------------------------------
+
+output$ggplot_lineplot <- renderPlot({
+  filtered_line_data() %>% 
+  make_lineplot()
+  
+})
+  
+
 }
 # output$seaborn_plot <- renderImage{
 #   source_python("plots/python_plots.py")

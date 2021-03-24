@@ -2,7 +2,7 @@ data.sort(function(a, b) {
   return d3.descending(a.relative_perc, b.relative_perc)
 });
 
-var margin = {top: 20, right: 130, bottom: 30, left: 120};
+var margin = {top: 40, right: 130, bottom: 30, left: 120};
 
 var lifted = height - margin.top- margin.bottom;
 
@@ -32,7 +32,7 @@ bars.enter()
     .append('rect')
       .attr("x", margin.left)
       .attr('width', function(d) { return x(d.relative_perc); })
-      .attr('height', function(d) { return Math.floor(lifted / data.length) - 12; })
+      .attr('height', function(d) { return Math.floor(lifted / data.length) - 5; })
       .attr('y', function(d, i) { return i * Math.floor(lifted / data.length); })
       .attr('fill', function(d) { return d.hex; });
 //    .attr("rx", 36);

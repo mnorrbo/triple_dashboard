@@ -19,9 +19,24 @@ popularity_df <- read_csv("clean_data/language_popularity.csv")
 
 # Create choice vectors for UI input --------------------------------------
 
-language_choices <- unique(popularity_df$language)
+language_choices <- popularity_df %>% 
+  distinct(language) %>% 
+  filter(language %in% c(
+    "C/C++",
+    "C#",
+    "Java",
+    "JavaScript",
+    "Julia",
+    "Matlab",
+    "Perl",
+    "Python",
+    "R",         
+    "Ruby",
+    "Rust",
+    "Scala",
+    "Swift",
+    "Visual Basic"
+  )) %>% 
+  pull(language)
 
-year_choices <- unique(popularity_df$year)
-
-month_choices <- unique(popularity_df$month)
 

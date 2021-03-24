@@ -44,7 +44,8 @@ ui <- fluidPage(
         condition = "input.plotting_lang == 'ggplot'",
         markdown("### This plot was made in `ggplot`"),
         br(),
-        plotOutput("ggplot_plot")
+        plotOutput("ggplot_barplot"),
+        plotOutput("ggplot_lineplot")
       ),
       
       conditionalPanel(

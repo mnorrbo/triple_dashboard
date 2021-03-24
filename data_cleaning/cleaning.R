@@ -39,12 +39,26 @@ df_clean <- df %>%
            into = c("Month", "Year")) %>% 
   clean_names() 
 
+# highest_mean_pop <- df_clean %>% 
+#   group_by(language) %>% 
+#   summarise(mean_popularity = mean(popularity)) %>% 
+#   slice_max(mean_popularity, n = 15)
+# 
+# most_pop_in_2020 <- df_clean %>% 
+#   filter(year == "2020") %>% 
+#   group_by(language) %>% 
+#   summarise(mean_popularity = mean(popularity)) %>% 
+#   slice_max(mean_popularity, n = 15)
+# 
+# df_subset <- df_clean %>% 
+#   filter(!(language %in% not_popular))
+
 
 # Join with hex codes -----------------------------------------------------
 
 hex_codes <- read_csv("raw_data/hex_codes.csv")
 
-df_clean_hex <- df_clean %>% 
+df_clean_hex <- df_clean%>% 
   left_join(hex_codes)
   
 
