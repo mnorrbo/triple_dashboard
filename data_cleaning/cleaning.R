@@ -12,7 +12,6 @@ library(janitor) # version 2.1.0
 
 df <- read_csv("raw_data/programming_languages_popularity.csv")
 
-
 # Checking Data -----------------------------------------------------------
 
 # is percentage data accurate?
@@ -37,15 +36,22 @@ df_clean <- df %>%
         values_to = "popularity",
         cols = Abap:`Visual Basic`) %>% 
   separate(Date, 
-           into = c("Month", "Year"),
-           remove = F) %>% 
-  clean_names()
+           into = c("Month", "Year")) %>% 
+  clean_names() 
+
+
+# Join with hex codes -----------------------------------------------------
+
+hex_codes <- read_csv("raw_data/hex_codes.csv")
+
+df_clean_hex <- df_clean %>% 
+  left_join(hex_codes)
   
 
 
 # Write clean dataset -----------------------------------------------------
 
-write_csv(df_clean, "../app/clean_data/js_py_r_popularity.csv") 
+write_csv(df_clean_hex, "../app/clean_data/language_popularity.csv") 
 
 
 # Clear all objects from Global Environment -------------------------------

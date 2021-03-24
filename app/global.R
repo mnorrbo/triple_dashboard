@@ -13,7 +13,7 @@ library(r2d3)
 
 # Data --------------------------------------------------------------------
 
-popularity_df <- read_csv("clean_data/js_py_r_popularity.csv")
+popularity_df <- read_csv("clean_data/language_popularity.csv")
 
 
 # Create choice vectors for UI input --------------------------------------
