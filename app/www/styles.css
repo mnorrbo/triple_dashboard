@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Contrail+One&display=swap');
+
+
+h1 {
+  font-family: 'Contrail One', cursive;
+  color: black;
+  font-size: 50px;
+}
+
+h3 {
+  font-family: 'Contrail One', cursive;
+  color: black;
+  font-size: 30px;
+}
+
+
+.selectize-control.multi .selectize-input > div.active {
+cursor: pointer;
+margin: 0 3px 3px 0;
+padding: 1px 3px;
+background: #80A4ED;
+color: #333333;
+border: 0 solid rgba(0, 0, 0, 0);
+}
+
+
+.selectize-control.multi .selectize-input > div[data-value=R]{
+background: #2566B5;
+color: white;
+}
+
+.selectize-control.multi .selectize-input > div[data-value=Python]{
+background: #336994;
+color: white;
+}
+
+.selectize-control.multi .selectize-input > div[data-value=JavaScript]{
+background: #F3D23C;
+color: black;
+}
+
+.selectize-control.multi .selectize-input > div[data-value=Julia]{
+background: #369325;
+color: white;
+}
+
+.selectize-control.multi .selectize-input > div[data-value=Ruby]{
+background: #B01E00;
+color: white;
+}
+
+.selectize-control.multi .selectize-input > div[data-value=Java]{
+background: #F8981E;
+color: black;
+}
+
+.selectize-control.multi .selectize-input > div[data-value=Matlab]{
+background: #F0800E;
+color: black;
+}
+
+
+
+
+/*.shiny-html-output {
+/*  background-color: #E6E1C5;
+/*  border-color: #D4CB92;
+/*  width: 500px;
+/*  font-size: 13px;
+/*}
+/*
+/*.pre {
+/*  color: #395C6B;
+/*}
+/*
+/*.well {
+/*  background-color: #b0d6d4;
+/*  border-color: #99c4c1;
+/*}
+/*
+/*.control-label {
+/*  font-family: 'Patrick Hand', cursive;
+/*  color: #80A4ED;
+/*  font-size: 17px;
+/*}
+/*
+/*.selectpicker {
+/*  color: #356360
+/*}
+/*
+/*img {
+/*  width: 150px;
+/*  height: 150px;
+/*}
+/*
+/*#update {
+/*  font-family: 'Libre Baskerville', serif;
+/*  font-size: 20px;
+/*  color: #ffffff;
+/*  background-color: #000000;
+/*  border-color: #000000;
+/*}*/

@@ -3,6 +3,7 @@
 # Packages ----------------------------------------------------------------
 source("plots/r_plots.R")
 library(shiny)
+library(shinyWidgets)
 library(readr)
 library(dplyr)
 library(ggplot2)

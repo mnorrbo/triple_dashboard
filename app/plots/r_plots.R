@@ -2,7 +2,7 @@ make_plot <- function(data){
   ggplot(data) +
   aes(x = language, y = relative_perc, fill = language) +
   geom_col() +
-  scale_y_continuous(breaks = seq(0, 1, 0.2), limits = c(0, 1), expand = c(0,0)) +
+  scale_y_continuous(breaks = seq(0, 1, 0.2), limits = c(0, 1), expand = c(0, 0), labels = c(0, 0.2, 0.4, 0.6, 0.8, 1)) +
   theme_classic() +
   theme(
       axis.title = element_blank(),
