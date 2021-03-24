@@ -1,7 +1,7 @@
 # This script defines global objects to de-clutter other scripts 
 
 # Packages ----------------------------------------------------------------
-
+source("plots/r_plots.R")
 library(shiny)
 library(readr)
 library(dplyr)

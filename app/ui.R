@@ -15,19 +15,7 @@ ui <- fluidPage(
         multiple = TRUE,
         selected = c("Python", "R", "JavaScript")
         
-      ),
-      
-      selectizeInput(
-        "year", 
-        "Select Year",
-        choices = year_choices,
-        selected = "2020"
-      ),
-      
-      selectizeInput("month",
-                      "Choose a month",
-                      choices = month_choices,
-                      selected = "December")
+      )
 
       ),
     
@@ -37,13 +25,19 @@ ui <- fluidPage(
       radioButtons(
         "plotting_lang",
         "Select your favourite plotting library",
-        choices = c("ggplot", "seaborn", "D3")
+        choices = c("ggplot", "D3")
       ),
       
+      conditionalPanel(
+        condition = "input.plotting_lang == 'ggplot'",
+        plotOutput("ggplot_plot")
+      ),
       
-      plotOutput("ggplot_plot"),
+      conditionalPanel(
+        condition = "input.plotting_lang == 'D3'",
+        d3Output("d3")
+      )
       
-      d3Output("d3")
     )
   )
 )
