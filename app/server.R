@@ -6,17 +6,16 @@ server <- function(input, output) {
 # Reactive relative percentages ------------------------
   filtered_data <- reactive({
     popularity_df %>%
-      filter(language %in% input$popularity_lang, 
+      filter(language %in% input$popularity_lang,
              year == "2020", 
              month == "December") %>% 
     group_by(year, month) %>%
       mutate(
         date_total = sum(popularity)
       ) %>%
-      group_by(year, month, language) %>%
+      group_by(year, month, language, hex) %>%
       summarise(relative_perc = popularity/date_total, .groups = "keep") %>% 
-      ungroup() %>% 
-      select(language, relative_perc) %>% 
+      ungroup() %>%
       mutate(language = factor(language),
              language = forcats::fct_reorder(language, relative_perc))
   })
