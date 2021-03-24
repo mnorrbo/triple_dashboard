@@ -3,59 +3,76 @@
 
 ui <- fluidPage(
   
+  useShinyjs(),
+  
   theme = "styles.css",
   
-  titlePanel(markdown("# Popularity of programming languages")),
- 
-  sidebarLayout(
+  titlePanel(h1("Which programming language is most popular?", align = "center")),
+  
+  br(),
+  br(),
+  
+  
+  fluidRow(column(12, align = "left",actionButton("toggleSidebar", "Add programming languages"))),
+  
+  fluidRow(
     
-   
+    column(12, align = "left",
+           
+           hidden(div(id = "my_div",
+                      selectizeInput(
+                        "popularity_lang", 
+                        label = NULL, 
+                        choices = language_choices,
+                        multiple = TRUE,
+                        selected = c("JavaScript", "R"))
+           ))
+    )),
     
-    sidebarPanel(
-
-
-      tags$div(
-        id='my_div',
-        class='my_class',
-        selectizeInput(
-        "popularity_lang", 
-        "Select Programming Languages", 
-        choices = language_choices,
-        multiple = TRUE,
-        selected = c("R", "JavaScript")
-        
-      )),
+    fluidRow(
       
-      radioGroupButtons(
-        "plotting_lang",
-        "Select your favourite plotting library",
-        choices = c("ggplot", "D3"),
-        status = "danger"
-      )
-
-      ),
-    
-    
-    mainPanel(
-
+      column(6, align = "center",
+             conditionalPanel(
+               condition = "input.plotting_lang == 'ggplot'",
+               br(),
+               plotOutput("ggplot_barplot"),
+               br(),
+               markdown("### This plot was made in `ggplot`")
+             ),
+             
+             conditionalPanel(
+               condition = "input.plotting_lang == 'D3'",
+               br(),
+               br(),
+               d3Output("d3"),
+               markdown("### This plot was made in `D3.js`")
+             )),
       
-      
-      conditionalPanel(
-        condition = "input.plotting_lang == 'ggplot'",
-        markdown("### This plot was made in `ggplot`"),
-        br(),
-        plotOutput("ggplot_barplot"),
-        plotOutput("ggplot_lineplot")
-      ),
-      
-      conditionalPanel(
-        condition = "input.plotting_lang == 'D3'",
-        markdown("### This plot was made in `D3.js`"),
-        br(),
-        br(),
-        d3Output("d3")
-      )
+      column(6, align = "center",
+             conditionalPanel(
+               condition = "input.plotting_lang == 'ggplot'",
+               br(),
+               plotOutput("ggplot_lineplot"),
+               br(),
+               markdown("### This plot was made in `ggplot`"))
       
     )
-  )
+  ),
+  
+  br(),
+  br(),
+  br(),
+  
+  fluidRow(column(12, align = "center",
+                  
+                  radioGroupButtons(
+                    "plotting_lang",
+                    label = NULL,
+                    choices = c("ggplot", "D3"),
+                    status = "danger"
+                  )
+  ))
+    
+    
+  
 )

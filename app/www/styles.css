@@ -1,18 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Contrail+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Contrail+One&family=Roboto&display=swap');
 
 
 h1 {
   font-family: 'Contrail One', cursive;
   color: black;
-  font-size: 50px;
+  font-size: 70px;
 }
 
 h3 {
-  font-family: 'Contrail One', cursive;
+  font-family: 'Roboto', sans-serif;
   color: black;
   font-size: 30px;
 }
 
+.control-label{
+  font-size: 30px;
+}
+
+.btn-default {
+color: #C7244E;
+background-color: #F9F2F4;
+border-color: white;
+}
+
+.btn-default:hover {
+color: white;
+background-color: #D9534F;
+border-color: white;
+}
+
+.btn {
+font-size: 25px;
+}
+
+.selectize-input {
+        height: 100px;
+        width: 600px;
+      }
+      
+.form-control {
+  font-size: 25px;
+  line-height: 1.42857143;
+  color: #555;
+}
+
+.selectize-control.multi .selectize-input > div {
+cursor: pointer;
+margin: 0 2px 2px 0;
+padding: 10px 3px;
+background: #80A4ED;
+color: #333333;
+border: 0 solid rgba(0, 0, 0, 0);
+font-size: 25px;
+}
 
 .selectize-control.multi .selectize-input > div.active {
 cursor: pointer;
@@ -21,8 +61,44 @@ padding: 1px 3px;
 background: #80A4ED;
 color: #333333;
 border: 0 solid rgba(0, 0, 0, 0);
+font-size: 25px;
 }
 
+
+.selectize-control.multi .selectize-input > div[data-value='C/C++']{
+background: #00599C;
+color: white;
+}
+
+.selectize-control.multi .selectize-input > div[data-value='C#']{
+background: #813084;
+color: white;
+}
+
+.selectize-control.multi .selectize-input > div[data-value=Perl]{
+background: #113E62;
+color: white;
+}
+
+.selectize-control.multi .selectize-input > div[data-value=Rust]{
+background: #000000;
+color: white;
+}
+
+.selectize-control.multi .selectize-input > div[data-value=Scala]{
+background: #DE3424;
+color: white;
+}
+
+.selectize-control.multi .selectize-input > div[data-value=Swift]{
+background: #E94F37;
+color: white;
+}
+
+.selectize-control.multi .selectize-input > div[data-value='Visual Basic']{
+background: #506AA0;
+color: white;
+}
 
 .selectize-control.multi .selectize-input > div[data-value=R]{
 background: #2566B5;
@@ -36,7 +112,7 @@ color: white;
 
 .selectize-control.multi .selectize-input > div[data-value=JavaScript]{
 background: #F3D23C;
-color: black;
+color: white;
 }
 
 .selectize-control.multi .selectize-input > div[data-value=Julia]{
@@ -51,12 +127,12 @@ color: white;
 
 .selectize-control.multi .selectize-input > div[data-value=Java]{
 background: #F8981E;
-color: black;
+color: white;
 }
 
 .selectize-control.multi .selectize-input > div[data-value=Matlab]{
 background: #F0800E;
-color: black;
+color: white;
 }
 
 

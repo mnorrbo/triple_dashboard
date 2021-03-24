@@ -58,8 +58,15 @@ output$ggplot_lineplot <- renderPlot({
   make_lineplot()
   
 })
-  
 
+
+# Toggle options ----------------------------------------------------------
+
+
+  observeEvent(input$toggleSidebar, {
+    shinyjs::toggle(id = "my_div",
+                    anim = TRUE)
+  })
 }
 # output$seaborn_plot <- renderImage{
 #   source_python("plots/python_plots.py")
