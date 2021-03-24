@@ -2,7 +2,7 @@ data.sort(function(a, b) {
   return d3.descending(a.relative_perc, b.relative_perc)
 });
 
-var margin = {top: 20, right: 20, bottom: 30, left: 100};
+var margin = {top: 20, right: 100, bottom: 30, left: 100};
 
 var lifted = height - margin.top- margin.bottom;
 
@@ -17,7 +17,7 @@ svg.select("g").remove()
 var labels = r2d3.svg.selectAll("text")
     .data(r2d3.data);
 
-var x = d3.scaleLinear().rangeRound([margin.left, width - margin.right]);
+var x = d3.scaleLinear().rangeRound([0, width - margin.right]);
 
 
 
@@ -34,7 +34,7 @@ bars.enter()
       .attr('width', function(d) { return x(d.relative_perc); })
       .attr('height', function(d) { return Math.floor(lifted / data.length) - 5; })
       .attr('y', function(d, i) { return i * Math.floor(lifted / data.length); })
-      .attr('fill', 'steelblue')
+      .attr('fill', function(d) { return d.hex; });
 //    .attr("rx", 36);
       
 //bars.append("text")
@@ -48,7 +48,8 @@ bars.transition()
   .duration(100)
   .attr("width", function(d) { return x(d.relative_perc); })
   .attr("height", function(d) { return Math.floor(lifted / data.length) - 5; })
-  .attr("y", function(d, i) { return i * Math.floor(lifted / data.length); });
+  .attr("y", function(d, i) { return i * Math.floor(lifted / data.length); })
+  .attr('fill', function(d) { return d.hex; });
   
 bars.exit().remove();
   
@@ -71,7 +72,7 @@ labels.exit().remove();
 
 svg.append("g")
     .attr("class", "axis axis--x")
-    .attr("transform", "translate(0," + lifted + ")")
-    .call(d3.axisBottom(x).ticks(5, size = lifted));
+    .attr("transform", "translate("+ margin.left + "," + lifted + ")")
+    .call(d3.axisBottom(x).ticks(5, size= lifted));
 
 //function(d, i) { return i * Math.floor(lifted / data.length); }
