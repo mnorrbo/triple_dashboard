@@ -42,9 +42,10 @@ output$ggplot_barplot <- renderPlot({
 
 
 output$seaborn_barplot <- renderImage({
-  
-  filtered_bar_data() %>% 
-    make_python_plot()
+
+# filtered_bar_data() %>% 
+#     make_python_plot()
+
   
   pfad <- "www/seaborn_barplot.png"
   list(src = pfad,
