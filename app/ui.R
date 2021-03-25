@@ -25,7 +25,8 @@ ui <- fluidPage(
                         label = NULL, 
                         choices = language_choices,
                         multiple = TRUE,
-                        selected = c("JavaScript", "R"))
+                        selected = c("JavaScript", "R"),
+                        options = list(minItems = 1))
            ))
     )),
     
@@ -35,7 +36,7 @@ ui <- fluidPage(
              conditionalPanel(
                condition = "input.plotting_lang == 'ggplot'",
                br(),
-               plotOutput("ggplot_barplot"),
+               plotOutput("ggplot_barplot") %>% withSpinner(image = "r_loading.gif", image.width = 100, image.height = 100),
                br(),
                markdown("### This plot was made in `ggplot`")
              ),
@@ -44,7 +45,7 @@ ui <- fluidPage(
                condition = "input.plotting_lang == 'D3'",
                br(),
                br(),
-               d3Output("d3"),
+               d3Output("d3_barplot"),
                markdown("### This plot was made in `D3.js`")
              )),
       
@@ -52,7 +53,7 @@ ui <- fluidPage(
              conditionalPanel(
                condition = "input.plotting_lang == 'ggplot'",
                br(),
-               plotOutput("ggplot_lineplot"),
+               plotOutput("ggplot_lineplot") %>% withSpinner(image = "r_loading.gif", image.width = 100, image.height = 100),
                br(),
                markdown("### This plot was made in `ggplot`"))
       
@@ -71,8 +72,11 @@ ui <- fluidPage(
                     choices = c("ggplot", "D3"),
                     status = "danger"
                   )
-  ))
-    
-    
-  
+  )),
+
+  fluidRow(column(12, align = "center",
+                  
+                  imageOutput("seaborn_barplot") %>% withSpinner()
+                    )
+                  )
 )

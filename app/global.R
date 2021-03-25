@@ -2,6 +2,7 @@
 
 # Packages ----------------------------------------------------------------
 source("plots/r_plots.R")
+source_python("plots/python_plots.py")
 library(shiny)
 library(shinyjs)
 library(shinyWidgets)
@@ -9,7 +10,8 @@ library(readr)
 library(dplyr)
 library(ggplot2)
 library(r2d3)
-# library(reticulate)
+library(shinycssloaders)
+library(reticulate)
 # sns <- import("seaborn")
 # pd <- import("pandas")
 
@@ -40,4 +42,17 @@ language_choices <- popularity_df %>%
   )) %>% 
   pull(language)
 
-
+popularity_df %>%
+  filter(language %in% c("JavaScript", "R", "Python", "Julia", "Perl", "Ruby"),
+         year == "2020",
+         month == "December") %>%
+  group_by(year, month) %>%
+  mutate(
+    date_total = sum(popularity)
+  ) %>%
+  group_by(year, month, language, hex) %>%
+  summarise(relative_perc = popularity/date_total, .groups = "keep") %>%
+  ungroup() %>%
+  mutate(language = factor(language),
+         language = forcats::fct_reorder(language, relative_perc)) %>%
+make_python_plot()

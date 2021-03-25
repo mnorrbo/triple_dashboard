@@ -19,7 +19,8 @@ server <- function(input, output) {
       summarise(relative_perc = popularity/date_total, .groups = "keep") %>% 
       ungroup() %>%
       mutate(language = factor(language),
-             language = forcats::fct_reorder(language, relative_perc))
+             language = forcats::fct_reorder(language, relative_perc)) %>% 
+      select(language, relative_perc, hex)
   })
   
 
@@ -27,12 +28,12 @@ server <- function(input, output) {
 
 
 output$ggplot_barplot <- renderPlot({
+
     filtered_bar_data() %>% 
     make_barplot()
-    
     })
   
-  output$d3 <- renderD3({
+  output$d3_barplot <- renderD3({
     r2d3(
       data = filtered_bar_data(),
       script = "plots/d3_plots.js"
@@ -40,9 +41,26 @@ output$ggplot_barplot <- renderPlot({
   })
 
 
+output$seaborn_barplot <- renderImage({
+  
+  filtered_bar_data() %>% 
+    make_python_plot()
+  
+  pfad <- "www/seaborn_barplot.png"
+  list(src = pfad,
+       contentType = 'image/png',
+       width = 300,
+       height = 300,
+       alt = "This is alternate text")
+}, deleteFile = F
+)
+
+
+
 # Data for line plots -----------------------------------------------------
 
-filtered_line_data <- reactive({ popularity_df %>% 
+filtered_line_data <- reactive({ 
+  popularity_df %>% 
     filter(language %in% input$popularity_lang) %>% 
     group_by(language, year) %>% 
     summarise(mean_yearly_pop = mean(popularity)/100, .groups = "keep") %>% 
@@ -54,9 +72,9 @@ filtered_line_data <- reactive({ popularity_df %>%
 # Render line plots -------------------------------------------------------
 
 output$ggplot_lineplot <- renderPlot({
+
   filtered_line_data() %>% 
   make_lineplot()
-  
 })
 
 

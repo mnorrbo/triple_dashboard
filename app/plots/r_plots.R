@@ -45,7 +45,7 @@ make_barplot <- function(data){
 }
 
 make_lineplot <- function(data){
-  ggplot(data) +
+ggplot(data) +
   geom_line(aes(x = year, y = log(mean_yearly_pop), group = language, color = language), size = 1.5) +
     #scale_y_continuous(breaks = seq(0, 0.4, 0.1), expand = c(0, 0.02), limits = c(0, 0.4)) +
     scale_x_continuous(breaks = seq(2004, 2020, 2), expand = c(0.1, 0)) +
@@ -58,12 +58,6 @@ make_lineplot <- function(data){
       axis.ticks.y = element_blank(),
       axis.text.y = element_blank()
     ) +
-  geom_label(data = subset(data, year == "2020"), 
-             aes(label = language, y = log(mean_yearly_pop), x = 2020), 
-             size = 7,
-             fill = "#D9534F",
-             colour = "white",
-             label.size = 0) +
     scale_color_manual(values = c(
       "Abap" =	"#06A9EA",
       "Ada" =	"#101EC8",
@@ -93,5 +87,12 @@ make_lineplot <- function(data){
       "TypeScript" =	"#3178C6",
       "VBA" =	"#93217F",
       "Visual Basic" = "#506AA0"
-    ), guide = FALSE)
+    ), guide = FALSE) + 
+    geom_label(data = subset(data, year == "2020"),
+             aes(label = language, y = log(mean_yearly_pop), x = 2020),
+             size = 7,
+             fill = "#D9534F",
+             colour = "white",
+             label.size = 0)
+
 }
