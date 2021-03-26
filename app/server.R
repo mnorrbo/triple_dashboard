@@ -52,7 +52,7 @@ output$seaborn_barplot <- renderImage({
   list(src = pfad,
        contentType = 'image/png',
        width = "100%",
-       height = "100%",
+       height = "90%",
        alt = "This is alternate text")
 }, deleteFile = F
 )

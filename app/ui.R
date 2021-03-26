@@ -11,6 +11,8 @@ ui <- fluidPage(
   
   br(),
   br(),
+  br(),
+  br(),
     
     fluidRow(
       
@@ -20,7 +22,7 @@ ui <- fluidPage(
                br(),
                plotOutput("ggplot_barplot", width = "90%") %>% withSpinner(image = "r_loading.gif", image.width = 100, image.height = 100),
                br(),
-               markdown("This plot was made in `ggplot`")
+               markdown("### This plot was made in `ggplot`")
              ),
              
              conditionalPanel(
@@ -28,17 +30,15 @@ ui <- fluidPage(
                br(),
                br(),
                d3Output("d3_barplot"),
-               markdown("This plot was made in `D3.js`")
+               markdown("### This plot was made in `D3.js`")
              ),
              
              conditionalPanel(
                condition = "input.plotting_lang == 'seaborn'",
                br(),
-               imageOutput("seaborn_barplot", height = "352px") %>% withSpinner(image = "python_loading.gif", image.width = 100, image.height = 100),
+               imageOutput("seaborn_barplot") %>% withSpinner(image = "python_loading.gif", image.width = 100, image.height = 100),
                br(),
-               br(),
-               br(),
-               markdown("This plot was made in `seaborn`")),
+               markdown("### This plot was made in `seaborn`")),
              
       ),
       
@@ -48,7 +48,7 @@ ui <- fluidPage(
                br(),
                plotOutput("ggplot_lineplot") %>% withSpinner(image = "r_loading.gif", image.width = 100, image.height = 100),
                br(),
-               markdown("This plot was made in `ggplot`"))
+               markdown("### This plot was made in `ggplot`"))
       
     )),
 
