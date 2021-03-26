@@ -15,6 +15,7 @@ server <- function(input, output) {
       mutate(
         date_total = sum(popularity)
       ) %>%
+      ungroup() %>% 
       group_by(year, month, language, hex) %>%
       summarise(relative_perc = popularity/date_total, .groups = "keep") %>% 
       ungroup() %>%
@@ -43,15 +44,15 @@ output$ggplot_barplot <- renderPlot({
 
 output$seaborn_barplot <- renderImage({
 
-# filtered_bar_data() %>% 
-#     make_python_plot()
+
+    make_python_plot(filtered_bar_data())
 
   
   pfad <- "www/seaborn_barplot.png"
   list(src = pfad,
        contentType = 'image/png',
-       width = 300,
-       height = 300,
+       width = "100%",
+       height = "100%",
        alt = "This is alternate text")
 }, deleteFile = F
 )

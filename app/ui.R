@@ -11,24 +11,6 @@ ui <- fluidPage(
   
   br(),
   br(),
-  
-  
-  fluidRow(column(12, align = "left",actionButton("toggleSidebar", "Add programming languages"))),
-  
-  fluidRow(
-    
-    column(12, align = "left",
-           
-           hidden(div(id = "my_div",
-                      selectizeInput(
-                        "popularity_lang", 
-                        label = NULL, 
-                        choices = language_choices,
-                        multiple = TRUE,
-                        selected = c("JavaScript", "R"),
-                        options = list(minItems = 1))
-           ))
-    )),
     
     fluidRow(
       
@@ -36,9 +18,9 @@ ui <- fluidPage(
              conditionalPanel(
                condition = "input.plotting_lang == 'ggplot'",
                br(),
-               plotOutput("ggplot_barplot") %>% withSpinner(image = "r_loading.gif", image.width = 100, image.height = 100),
+               plotOutput("ggplot_barplot", width = "90%") %>% withSpinner(image = "r_loading.gif", image.width = 100, image.height = 100),
                br(),
-               markdown("### This plot was made in `ggplot`")
+               markdown("This plot was made in `ggplot`")
              ),
              
              conditionalPanel(
@@ -46,8 +28,19 @@ ui <- fluidPage(
                br(),
                br(),
                d3Output("d3_barplot"),
-               markdown("### This plot was made in `D3.js`")
-             )),
+               markdown("This plot was made in `D3.js`")
+             ),
+             
+             conditionalPanel(
+               condition = "input.plotting_lang == 'seaborn'",
+               br(),
+               imageOutput("seaborn_barplot", height = "352px") %>% withSpinner(image = "python_loading.gif", image.width = 100, image.height = 100),
+               br(),
+               br(),
+               br(),
+               markdown("This plot was made in `seaborn`")),
+             
+      ),
       
       column(6, align = "center",
              conditionalPanel(
@@ -55,28 +48,44 @@ ui <- fluidPage(
                br(),
                plotOutput("ggplot_lineplot") %>% withSpinner(image = "r_loading.gif", image.width = 100, image.height = 100),
                br(),
-               markdown("### This plot was made in `ggplot`"))
+               markdown("This plot was made in `ggplot`"))
       
-    )
-  ),
-  
-  br(),
-  br(),
-  br(),
-  
-  fluidRow(column(12, align = "center",
-                  
-                  radioGroupButtons(
-                    "plotting_lang",
-                    label = NULL,
-                    choices = c("ggplot", "D3"),
-                    status = "danger"
-                  )
-  )),
+    )),
 
-  fluidRow(column(12, align = "center",
-                  
-                  imageOutput("seaborn_barplot") %>% withSpinner()
-                    )
-                  )
+  
+  br(),
+  br(),
+  br(),
+  
+ fluidRow(column(12, align = "center",
+                 
+                 radioGroupButtons(
+                   "plotting_lang",
+                   label = NULL,
+                   choices = c("ggplot", "D3", "seaborn"),
+                   status = "danger"
+                 )
+ )),
+ 
+ br(),
+ 
+ br(),
+ 
+ 
+ fluidRow(column(12, align = "center",actionButton("toggleSidebar", "Add programming languages"))),
+ 
+ fluidRow(
+   
+   column(12, align = "center",
+          
+          hidden(div(id = "my_div",
+                     selectizeInput(
+                       "popularity_lang", 
+                       label = NULL, 
+                       choices = language_choices,
+                       multiple = TRUE,
+                       selected = c("JavaScript", "R", "Python"),
+                       options = list(minItems = 1))
+          ))
+   ))
 )

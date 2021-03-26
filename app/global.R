@@ -1,8 +1,7 @@
 # This script defines global objects to de-clutter other scripts 
 
 # Packages ----------------------------------------------------------------
-source("plots/r_plots.R")
-#source_python("plots/python_plots.py")
+
 library(shiny)
 library(shinyjs)
 library(shinyWidgets)
@@ -11,10 +10,12 @@ library(dplyr)
 library(ggplot2)
 library(r2d3)
 library(shinycssloaders)
+
 library(reticulate)
+source("plots/r_plots.R")
+source_python("plots/python_plots.py")
 sns <- import('seaborn')
-# sns <- import("seaborn")
-# pd <- import("pandas")
+pd <- import("pandas")
 
 # Data --------------------------------------------------------------------
 
@@ -45,20 +46,20 @@ language_choices <- popularity_df %>%
 
 # test <- popularity_df %>%
 #   filter(language %in% c("JavaScript", "Python", "R"),
-#          year == "2020", 
-#          month == "December") %>% 
+#          year == "2020",
+#          month == "December") %>%
 #   group_by(year, month) %>%
 #   mutate(
 #     date_total = sum(popularity)
 #   ) %>%
 #   group_by(year, month, language, hex) %>%
-#   summarise(relative_perc = popularity/date_total, .groups = "keep") %>% 
+#   summarise(relative_perc = popularity/date_total, .groups = "keep") %>%
 #   ungroup() %>%
 #   mutate(language = factor(language),
-#          language = forcats::fct_reorder(language, relative_perc)) %>% 
+#          language = forcats::fct_reorder(language, relative_perc)) %>%
 #   select(language, relative_perc, hex)
 # 
 # test = sns$barplot(data = r_to_py(test), x = "language", y = "relative_perc")
-# 
+
 # py_to_r(get_figure(test))
 # .savefig("www/seaborn_barplot.png", bbox_inches = "tight")

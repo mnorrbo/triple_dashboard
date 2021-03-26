@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Contrail+One&family=Roboto&display=swap');
 
+/*#seaborn_barplot {
+/*  padding: 0px;
+/*}*/
+
+#my_text {
+  align-items: "left";
+}
+
+body {
+  padding: 40px;
+}
 
 h1 {
   font-family: 'Contrail One', cursive;
@@ -33,10 +44,10 @@ border-color: white;
 font-size: 25px;
 }
 
-.selectize-input {
-        height: 100px;
-        width: 600px;
-      }
+/*.selectize-input {
+/*        height: 100px;
+/*        width: 600px;
+/*      }*/
       
 .form-control {
   font-size: 25px;
@@ -57,9 +68,7 @@ font-size: 25px;
 .selectize-control.multi .selectize-input > div.active {
 cursor: pointer;
 margin: 0 3px 3px 0;
-padding: 1px 3px;
-background: #80A4ED;
-color: #333333;
+padding: 10px 3px;
 border: 0 solid rgba(0, 0, 0, 0);
 font-size: 25px;
 }
