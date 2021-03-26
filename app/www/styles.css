@@ -1,12 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Contrail+One&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Contrail+One&family=Roboto&display=swap&family=Inconsolata&display=swap');
 
-/*#seaborn_barplot {
-/*  padding: 0px;
-/*}*/
-
-#my_text {
-  align-items: "left";
-}
 
 body {
   padding-left: 100px;
@@ -17,7 +10,7 @@ body {
 h1 {
   font-family: 'Contrail One', cursive;
   color: black;
-  font-size: 70px;
+  font-size: 100px;
 }
 
 h3 {
@@ -30,27 +23,37 @@ h3 {
   font-size: 30px;
 }
 
-.btn-default {
-color: #C7244E;
-background-color: #F9F2F4;
-border-color: white;
-}
 
-.btn-default:hover {
-color: white;
-background-color: #D9534F;
-border-color: white;
-}
+/*#toggleOptions {
+/*  color: black;
+/*  background-color: #d4d4d4;
+/*  border-color: #ababab;
+/*}
+/*
+/*#toggleOptions:hover {
+/*color: black;
+/*background-color: #ababab;
+/*border-color: #919191;
+/*}*/
 
 .btn {
-font-size: 25px;
+font-size: 30px;
+font-family: 'Inconsolata', monospace;
+color: #f9f2f4;
+background-color: blue;
 }
 
-/*.selectize-input {
-/*        height: 100px;
-/*        width: 600px;
-/*      }*/
-      
+code {
+padding: 2px 4px;
+font-size: 90%;
+color: #c7254e;
+background-color: blue;
+border-radius: 4px;
+}
+
+.btn.active, .btn:active {
+  box-shadow: inset 0 0px 0px rgba(0,0,0,0);
+   
 .form-control {
   font-size: 25px;
   line-height: 1.42857143;
@@ -75,6 +78,7 @@ border: 0 solid rgba(0, 0, 0, 0);
 font-size: 25px;
 }
 
+/* Custom colours for each programming language option */
 
 .selectize-control.multi .selectize-input > div[data-value='C/C++']{
 background: #00599C;
@@ -145,45 +149,3 @@ color: white;
 background: #F0800E;
 color: white;
 }
-
-
-
-
-/*.shiny-html-output {
-/*  background-color: #E6E1C5;
-/*  border-color: #D4CB92;
-/*  width: 500px;
-/*  font-size: 13px;
-/*}
-/*
-/*.pre {
-/*  color: #395C6B;
-/*}
-/*
-/*.well {
-/*  background-color: #b0d6d4;
-/*  border-color: #99c4c1;
-/*}
-/*
-/*.control-label {
-/*  font-family: 'Patrick Hand', cursive;
-/*  color: #80A4ED;
-/*  font-size: 17px;
-/*}
-/*
-/*.selectpicker {
-/*  color: #356360
-/*}
-/*
-/*img {
-/*  width: 150px;
-/*  height: 150px;
-/*}
-/*
-/*#update {
-/*  font-family: 'Libre Baskerville', serif;
-/*  font-size: 20px;
-/*  color: #ffffff;
-/*  background-color: #000000;
-/*  border-color: #000000;
-/*}*/

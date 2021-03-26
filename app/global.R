@@ -43,23 +43,3 @@ language_choices <- popularity_df %>%
     "Visual Basic"
   )) %>% 
   pull(language)
-
-# test <- popularity_df %>%
-#   filter(language %in% c("JavaScript", "Python", "R"),
-#          year == "2020",
-#          month == "December") %>%
-#   group_by(year, month) %>%
-#   mutate(
-#     date_total = sum(popularity)
-#   ) %>%
-#   group_by(year, month, language, hex) %>%
-#   summarise(relative_perc = popularity/date_total, .groups = "keep") %>%
-#   ungroup() %>%
-#   mutate(language = factor(language),
-#          language = forcats::fct_reorder(language, relative_perc)) %>%
-#   select(language, relative_perc, hex)
-# 
-# test = sns$barplot(data = r_to_py(test), x = "language", y = "relative_perc")
-
-# py_to_r(get_figure(test))
-# .savefig("www/seaborn_barplot.png", bbox_inches = "tight")

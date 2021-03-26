@@ -9,7 +9,9 @@ make_barplot <- function(data){
       axis.text = element_text(size = 20, face = "bold"),
       axis.ticks.length.x = unit(2, "mm"),
       axis.line.y = element_blank(),
-      axis.ticks.y = element_blank()
+      axis.ticks.y = element_blank(),
+      panel.background = element_rect(fill = "transparent",colour = NA),
+      plot.background = element_rect(fill = "transparent",colour = NA)
   ) +
   coord_flip()  +
   scale_fill_manual(values = c(
@@ -46,7 +48,7 @@ make_barplot <- function(data){
 
 make_lineplot <- function(data){
 ggplot(data) +
-  geom_line(aes(x = year, y = log(mean_yearly_pop), group = language, color = language), size = 1.5) +
+  geom_line(aes(x = year, y = mean_yearly_pop, group = language, color = language), size = 1) +
     #scale_y_continuous(breaks = seq(0, 0.4, 0.1), expand = c(0, 0.02), limits = c(0, 0.4)) +
     scale_x_continuous(breaks = seq(2004, 2020, 2), expand = c(0.1, 0)) +
     theme_classic() +
@@ -56,7 +58,14 @@ ggplot(data) +
       axis.ticks.length.x = unit(2, "mm"),
       axis.line.y = element_blank(),
       axis.ticks.y = element_blank(),
-      axis.text.y = element_blank()
+      axis.text.y = element_blank(),
+      legend.position = c(0.1, 0.5),
+      legend.title = element_blank(),
+      legend.text = element_text(size = 25),
+      legend.key.width = unit(2,"cm"),
+      panel.background = element_rect(fill = "transparent",colour = NA),
+      plot.background = element_rect(fill = "transparent",colour = NA),
+      legend.background = element_rect(fill = NA, colour = NA)
     ) +
     scale_color_manual(values = c(
       "Abap" =	"#06A9EA",
@@ -87,12 +96,14 @@ ggplot(data) +
       "TypeScript" =	"#3178C6",
       "VBA" =	"#93217F",
       "Visual Basic" = "#506AA0"
-    ), guide = FALSE) + 
-    geom_label(data = subset(data, year == "2020"),
-             aes(label = language, y = log(mean_yearly_pop), x = 2020),
-             size = 7,
-             fill = "#D9534F",
-             colour = "white",
-             label.size = 0)
+    )) 
 
 }
+
+# + 
+#   geom_label(data = subset(data, year == "2020"),
+#              aes(label = language, y = mean_yearly_pop, x = 2020),
+#              size = 7,
+#              fill = "#D9534F",
+#              colour = "white",
+#              label.size = 0)
