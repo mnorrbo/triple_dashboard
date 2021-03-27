@@ -1,7 +1,7 @@
 # This script defines global objects to de-clutter other scripts 
 
 # Packages ----------------------------------------------------------------
-
+suppressPackageStartupMessages({
 library(shiny)
 library(shinyjs)
 library(shinyWidgets)
@@ -9,13 +9,13 @@ library(readr)
 library(dplyr)
 library(ggplot2)
 library(r2d3)
-library(shinycssloaders)
+library(shinycssloaders)})
 
 library(reticulate)
 source("plots/r_plots.R")
 source_python("plots/python_plots.py")
-sns <- import('seaborn')
-pd <- import("pandas")
+#sns <- import('seaborn')
+#pd <- import("pandas")
 
 # Data --------------------------------------------------------------------
 
