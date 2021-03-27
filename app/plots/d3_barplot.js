@@ -4,7 +4,7 @@ data.sort(function(a, b) {
 
 var margin = {top: 40, right: 130, bottom: 30, left: 120};
 
-var lifted = height - margin.top- margin.bottom;
+var lifted = height - margin.top - margin.bottom;
 
 //var shifted = width - margin.left - margin.right;
 
@@ -19,7 +19,7 @@ var labels = r2d3.svg.selectAll("text")
 
 var x = d3.scaleLinear().rangeRound([0, width - margin.right]);
 
-
+svg.style("background-color", "rgba(0, 0, 0, 0)")
 
 x.domain([0, 1]);
 //Math.max(data, function(d) { return d.relative_perc; })
@@ -74,6 +74,6 @@ svg.append("g")
     .attr("class", "axis axis--x")
     .attr("transform", "translate("+ margin.left + "," + lifted + ")")
     .style("font-size", "20px")
-    .call(d3.axisBottom(x).ticks(5, size= lifted));
+    .call(d3.axisBottom(x).ticks(5));
 
 //function(d, i) { return i * Math.floor(lifted / data.length); }

@@ -39,11 +39,10 @@ def make_python_barplot(data_input):
 
 def make_python_lineplot(data_input):
   lplot = sns.lineplot(data = data_input, x = "year", y = "mean_yearly_pop", hue = "language", palette = palette)
-  lplot.legend(prop={'size': 12})
   leg = lplot.legend_
   leg.set_title(None)
   leg.get_frame().set_linewidth(0.0)
-  lplot.legend(framealpha=0)
+  lplot.legend(framealpha=0,prop={'size': 15})
   lplot.spines['right'].set_visible(False)
   lplot.spines['top'].set_visible(False)
   lplot.spines['left'].set_visible(False)

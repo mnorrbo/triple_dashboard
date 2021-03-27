@@ -59,7 +59,7 @@ ggplot(data) +
       axis.line.y = element_blank(),
       axis.ticks.y = element_blank(),
       axis.text.y = element_blank(),
-      legend.position = c(0.1, 0.5),
+      legend.position = c(0.1, 0.8),
       legend.title = element_blank(),
       legend.text = element_text(size = 25),
       legend.key.width = unit(2,"cm"),

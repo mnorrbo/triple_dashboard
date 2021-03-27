@@ -37,7 +37,7 @@ output$ggplot_barplot <- renderPlot({
   output$d3_barplot <- renderD3({
     r2d3(
       data = filtered_bar_data(),
-      script = "plots/d3_plots.js"
+      script = "plots/d3_barplot.js"
     )
   })
 
@@ -94,16 +94,18 @@ output$seaborn_lineplot <- renderImage({
 }, deleteFile = F
 )
 
+output$d3_lineplot <- renderD3({
+  r2d3(
+    data = filtered_line_data(),
+    script = "plots/d3_lineplot.js"
+  )
+})
 
 # Toggle options ----------------------------------------------------------
 
 
   observeEvent(input$toggleOptions, {
-    shinyjs::toggle(id = "my_div",
+    shinyjs::toggle(id = "hidden_div",
                     anim = TRUE)
   })
 }
-# output$seaborn_plot <- renderImage{
-#   source_python("plots/python_plots.py")
-#   outfile <- tempfile()
-#   }
