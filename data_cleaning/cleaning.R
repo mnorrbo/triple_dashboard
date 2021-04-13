@@ -58,10 +58,8 @@ df_clean <- df %>%
 
 hex_codes <- read_csv("raw_data/hex_codes.csv")
 
-df_clean_hex <- df_clean%>% 
+df_clean_hex <- df_clean %>% 
   left_join(hex_codes)
-  
-
 
 # Write clean dataset -----------------------------------------------------
 

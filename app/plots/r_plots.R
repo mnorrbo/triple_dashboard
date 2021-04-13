@@ -41,8 +41,7 @@ make_barplot <- function(data){
                     "Scala" =	"#DE3424",
                     "Swift" =	"#E94F37",
                     "TypeScript" =	"#3178C6",
-                    "VBA" =	"#93217F",
-                    "Visual Basic" = "#506AA0"
+                    "VBA" =	"#93217F"
                     ), guide = FALSE)
 }
 
@@ -94,8 +93,7 @@ ggplot(data) +
       "Scala" =	"#DE3424",
       "Swift" =	"#E94F37",
       "TypeScript" =	"#3178C6",
-      "VBA" =	"#93217F",
-      "Visual Basic" = "#506AA0"
+      "VBA" =	"#93217F"
     )) 
 
 }

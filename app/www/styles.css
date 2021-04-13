@@ -161,11 +161,6 @@ background: #E94F37;
 color: white;
 }
 
-.selectize-control.multi .selectize-input > div[data-value='Visual Basic']{
-background: #506AA0;
-color: white;
-}
-
 .selectize-control.multi .selectize-input > div[data-value=R]{
 background: #2566B5;
 color: white;

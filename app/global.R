@@ -39,14 +39,6 @@ language_choices <- popularity_df %>%
     "Ruby",
     "Rust",
     "Scala",
-    "Swift",
-    "Visual Basic"
+    "Swift"
   )) %>% 
   pull(language)
-
-popularity_df %>% 
-  filter(language %in% c("JavaScript", "R", "Python")) %>% 
-  group_by(language, year, hex) %>% 
-  summarise(mean_yearly_pop = mean(popularity)/100, .groups = "keep") %>% 
-  ungroup %>% 
-  jsonlite::toJSON()

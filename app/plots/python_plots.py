@@ -17,8 +17,7 @@ palette = {
   "Ruby": "#B01E00",
   "Rust": "#000000",
   "Scala": "#DE3424",
-  "Swift": "#E94F37",
-  "Visual Basic": "#506AA0"}
+  "Swift": "#E94F37"}
   
 
 
