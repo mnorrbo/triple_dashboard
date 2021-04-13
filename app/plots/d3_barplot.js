@@ -2,7 +2,7 @@ data.sort(function(a, b) {
   return d3.descending(a.relative_perc, b.relative_perc)
 });
 
-var margin = {top: 40, right: 130, bottom: 30, left: 120};
+var margin = {top: 40, right: 150, bottom: 30, left: 120};
 
 var lifted = height - margin.top - margin.bottom;
 
