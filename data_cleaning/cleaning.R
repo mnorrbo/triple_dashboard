@@ -25,7 +25,7 @@ range_of_sums <- df %>%
 year_obs <- df %>% 
   separate(Date, into = c("month", "year")) %>% 
   group_by(year) %>% 
-  summarise(n()) # 2004 does not, contains 6 - remove
+  summarise(n()) # 2004 does not, contains 6 
 
 
 # Create Year and Month columns -------------------------------------------

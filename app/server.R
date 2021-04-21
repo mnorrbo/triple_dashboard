@@ -107,23 +107,28 @@ output$d3_lineplot <- renderD3({
                     anim = TRUE)
   })
 
+#The PYPL PopularitY of Programming Language Index is created by analyzing how often language tutorials are searched on Google : the more a language tutorial is searched, the more popular the language is assumed to be. It is a leading indicator. The raw data comes from Google Trends.
+
 
   observeEvent(input$about, {
     shinyalert(
       "About", 
-      "\n Contains some stuff \n
-      Some other stuff \n
-      more stuff \n
-      more stuff \n",
+      "This app was created as a personal project to expand my 
+      <br> Shiny, data viz and CSS skills. <br> <br>
+      The data used in this app comes from 
+      <a href = 'https://www.kaggle.com/muhammadkhalid/most-popular-programming-languages-since-2004'> Muhammad Khalid </a> on Kaggle, who
+      <br> obtained it from the <a href = https://pypl.github.io/PYPL.html>PYPL index</a>, which ranks programming languages
+      <br> by how often language tutorials are searched on Google",
       imageUrl = "icon.png",
       size = "l",
       animation = FALSE,
       closeOnClickOutside = TRUE,
       closeOnEsc = TRUE,
       showConfirmButton = FALSE,
-      imageWidth = 300,
-      imageHeight = 300,
-      className = "about_modal"
+      imageWidth = 200,
+      imageHeight = 200,
+      className = "about_modal",
+      html = TRUE
     )
   })
 
