@@ -109,21 +109,23 @@ output$d3_lineplot <- renderD3({
 
 
   observeEvent(input$about, {
-    shinyalert("About", 
-               "\n Contains some stuff \n
-               Some other stuff \n
-               more stuff \n
-               more stuff \n
-               more stuff \n \n",
-               imageUrl = "icon.png",
-               size = "l",
-               animation = FALSE,
-               closeOnClickOutside = TRUE,
-               closeOnEsc = TRUE,
-               showConfirmButton = FALSE,
-               imageWidth = 300,
-               imageHeight = 300,
-               className = "about_modal")
+    shinyalert(
+      "About", 
+      "\n Contains some stuff \n
+      Some other stuff \n
+      more stuff \n
+      more stuff \n
+      more stuff \n \n",
+      imageUrl = "icon.png",
+      size = "l",
+      animation = FALSE,
+      closeOnClickOutside = TRUE,
+      closeOnEsc = TRUE,
+      showConfirmButton = FALSE,
+      imageWidth = 300,
+      imageHeight = 300,
+      className = "about_modal"
+    )
   })
 
 }

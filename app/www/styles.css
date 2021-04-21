@@ -1,16 +1,27 @@
+
 /* General */
 
 @import url('https://fonts.googleapis.com/css2?family=Contrail+One&family=Roboto&display=swap&family=Inconsolata&display=swap');
 
+:root {
+  --primary-color: #FFEEED;
+  --primary-color-border: #E3D2D1;
+  --primary-color-active: #FFC2BF;
+  --primary-color-border-active: #DEA7A4;
+  --secondary-color: #FFFFFF;
+  --tertiary-color: #F6F6F6;
+  --text-color: #4A154B; 
+}
+
 h1 {
   font-family: 'Contrail One', cursive;
-  color: #4A154B;
+  color: var(--text-color);
   font-size: 100px;
 }
 
 h3 {
   font-family: 'Roboto', sans-serif;
-  color: #4A154B;
+  color: var(--text-color);
   font-size: 30px;
 }
 
@@ -18,28 +29,28 @@ body {
   padding-left: 100px;
   padding-right: 100px;
   padding-top: 50px;
-  background-color: #FFEEED;
+  background-color: var(--primary-color);
 }
 
 code {
     padding: 2px 4px;
     font-size: 90%;
     color:#F6F6F6;
-    background-color: #4A154B;
+    background-color: var(--text-color);
     border-radius: 4px;
 }
 
 
 #small_well {
-    background-color: #F6F6F6;
-    border-color: #F6F6F6;
+    background-color: var(--tertiary-color);
+    border-color: var(--tertiary-color);
     border-radius: 40px;
     box-shadow: none;
 }
 
 #big_well {
-    background-color: #FFFFFF;
-    border-color: #FFFFFF;
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
     border-radius: 40px;
     box-shadow: none;
     padding-left: 80px;
@@ -53,7 +64,7 @@ code {
 
 .control-label{
   font-size: 30px;
-  color: #4A154B;
+  color: var(--text-color);
   background-image: none;
 }
 
@@ -63,18 +74,18 @@ code {
 .btn-default {
     font-size: 30px;
     font-family: 'Inconsolata', monospace;
-    color: #4A154B;
-    background-color: #FFEEED;
-    border-color: #e3d2d1;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color-border);
     border-radius: 18px;
 }
 
 
 .btn-group-vertical>.btn.active, .btn-group-vertical>.btn:active, .btn-group-vertical>.btn:focus, .btn-group-vertical>.btn:hover, .btn-group>.btn.active, .btn-group>.btn:active, .btn-group>.btn:focus, .btn-group>.btn:hover {
-    color: #4A154B;
-    background-color: #FFC2BF;
+    color: var(--text-color);
+    background-color: var(--primary-color-active);
     background-image: none;
-    border-color: #dea7a4;
+    border-color: var(--primary-color-border-active);
     box-shadow: none;
 }
 
@@ -83,22 +94,22 @@ code {
 
 
 #toggleOptions {
-  color: #4A154B;
-  background-color: #FFEEED;
-  border-color: #e3d2d1;
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color-border);
 }
 
 #toggleOptions:hover {
-  color: #4A154B;
-  background-color: #FFC2BF;
-  border-color: #dea7a4;
+  color: var(--text-color);
+  background-color: var(--primary-color-active);
+  border-color: var(--primary-color-border-active);
 }
 
 /* Background for strip with language options*/
 
 .selectize-input {
   padding: 20px;
-  background: #F6F6F6;
+  background: var(--tertiary-color);
   border-color: #e8e8e8;
   width: 15%;
 
@@ -107,17 +118,17 @@ code {
 /* Options in dropdown */
 
 .selectize-dropdown, .selectize-dropdown.form-control {
-  background: #FFFFFF;
-  border: #F6F6F6;
+  background: var(--secondary-color);
+  border: var(--tertiary-color);
   font-size: 30px;
   padding: 10px;
-  color: #4A154B;
+  color: var(--text-color);
 }
 
 .option:hover {
-  background: #F6F6F6;
+  background: var(--tertiary-color);
   border: #e0e0e0;
-  color: #FFC2BF;
+  color: var(--primary-color-active);
 }
 
 /* Language options size etc.*/
