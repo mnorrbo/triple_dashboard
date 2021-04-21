@@ -1,25 +1,27 @@
-# This script defines global objects to de-clutter other scripts 
-
 # Packages ----------------------------------------------------------------
-suppressPackageStartupMessages({
-library(shiny)
-library(shinyjs)
-library(shinyWidgets)
-library(readr)
-library(dplyr)
-library(ggplot2)
-library(r2d3)
-library(shinycssloaders)})
 
-library(reticulate)
+suppressPackageStartupMessages({
+  library(shiny)
+  library(shinyjs)
+  library(shinyWidgets)
+  library(readr)
+  library(dplyr)
+  library(ggplot2)
+  library(r2d3)
+  library(shinycssloaders)
+  library(reticulate)
+})
+
+
+# Source plotting scripts -------------------------------------------------
+
 source("plots/r_plots.R")
 source_python("plots/python_plots.py")
-#sns <- import('seaborn')
-#pd <- import("pandas")
 
 # Data --------------------------------------------------------------------
 
-popularity_df <- read_csv("clean_data/language_popularity.csv")
+popularity_df <- read_csv("clean_data/language_popularity.csv", 
+                          col_types = cols())
 
 
 # Create choice vectors for UI input --------------------------------------

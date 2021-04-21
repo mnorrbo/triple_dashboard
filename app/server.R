@@ -32,7 +32,7 @@ output$ggplot_barplot <- renderPlot({
 
     filtered_bar_data() %>% 
     make_barplot()
-    },bg="transparent")
+    }, bg = "transparent")
   
   output$d3_barplot <- renderD3({
     r2d3(
@@ -54,7 +54,7 @@ output$seaborn_barplot <- renderImage({
        width = "100%",
        height = "100%",
        alt = "Relative popularity of programming languages in December 2020")
-}, deleteFile = F
+}, deleteFile = TRUE
 )
 
 
@@ -77,7 +77,7 @@ output$ggplot_lineplot <- renderPlot({
 
   filtered_line_data() %>% 
   make_lineplot()
-},bg="transparent")
+}, bg = "transparent")
 
 output$seaborn_lineplot <- renderImage({
   
@@ -91,7 +91,7 @@ output$seaborn_lineplot <- renderImage({
        width = "100%",
        height = "100%",
        alt = "This is alternate text")
-}, deleteFile = F
+}, deleteFile = TRUE
 )
 
 output$d3_lineplot <- renderD3({

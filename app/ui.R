@@ -15,7 +15,10 @@ ui <- fluidPage(
       br(),
       br(),
       
-      titlePanel(h1("Which programming language is most popular?", align = "center")),
+      titlePanel(
+        title = h1("Which programming language is most popular?", align = "center"),
+        tags$head(tags$link(rel = "icon", type = "image/png", href = "twitter_logo.png"),
+                  tags$title("Triple Dashboard"))),
       
       br(),
       br(),

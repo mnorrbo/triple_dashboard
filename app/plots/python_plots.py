@@ -1,6 +1,9 @@
 import pandas as pd
 import seaborn as sns
 from matplotlib.pyplot import figure
+import matplotlib as mpl
+
+mpl.rcParams.update({'figure.max_open_warning': 0})
 
 figure(figsize=(15, 5))
 
