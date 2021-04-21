@@ -118,7 +118,8 @@ output$d3_lineplot <- renderD3({
       The data used in this app comes from 
       <a href = 'https://www.kaggle.com/muhammadkhalid/most-popular-programming-languages-since-2004'> Muhammad Khalid </a> on Kaggle, who
       <br> obtained it from the <a href = https://pypl.github.io/PYPL.html>PYPL index</a>, which ranks programming languages
-      <br> by how often language tutorials are searched on Google",
+      <br> by how often language tutorials are searched on Google
+      <br>",
       imageUrl = "icon.png",
       size = "l",
       animation = FALSE,

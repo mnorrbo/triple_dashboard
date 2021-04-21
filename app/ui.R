@@ -3,6 +3,8 @@
 
 ui <- fluidPage(
   
+  setBackgroundImage("background3.png"),
+  
   useShinyjs(),
   
   useShinyalert(),
