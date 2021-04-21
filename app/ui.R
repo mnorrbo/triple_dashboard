@@ -5,6 +5,8 @@ ui <- fluidPage(
   
   useShinyjs(),
   
+  useShinyalert(),
+  
   wellPanel(
     id = "big_well",
     
@@ -17,7 +19,7 @@ ui <- fluidPage(
       
       titlePanel(
         title = h1("Which programming language is most popular?", align = "center"),
-        tags$head(tags$link(rel = "icon", type = "image/png", href = "twitter_logo.png"),
+        tags$head(tags$link(rel = "icon", type = "image/png", href = "icon.png"),
                   tags$title("Triple Dashboard"))),
       
       br(),
@@ -38,7 +40,11 @@ ui <- fluidPage(
               condition = "input.plotting_lang == 'ggplot'",
               br(),
               plotOutput("ggplot_barplot") %>%
-                withSpinner(image = "r_loading.gif", image.width = 100, image.height = 100),
+                withSpinner(
+                  image = "r_loading.gif", 
+                  image.width = 100, 
+                  image.height = 100
+                ),
               br(),
               markdown("### This plot was made in `ggplot`")
             ),
@@ -57,7 +63,11 @@ ui <- fluidPage(
               condition = "input.plotting_lang == 'seaborn'",
               br(),
               imageOutput("seaborn_barplot") %>% 
-                withSpinner(image = "python_loading.gif", image.width = 100, image.height = 100),
+                withSpinner(
+                  image = "python_loading.gif", 
+                  image.width = 100, 
+                  image.height = 100
+                ),
               br(),
               markdown("### This plot was made in `seaborn`")
             )
@@ -148,8 +158,15 @@ ui <- fluidPage(
   ),
   
   fluidRow(
+    
     column(
-      12,
+      6,
+      align = "left",
+      actionButton("about", h3("About this app"))
+    ),
+    
+    column(
+      6,
       align = "right",
       HTML(
         '<a href="https://github.com/mnorrbo">
@@ -163,5 +180,19 @@ ui <- fluidPage(
             </a>'
       )
     )
+  ),
+  
+  disconnectMessage(
+    text = "Your session has timed out.",
+    refresh = "Refresh",
+    background = "#646464e6",
+    size = 36,
+    width = "full",
+    top = "center",
+    colour = "white",
+    overlayColour = "#999",
+    overlayOpacity = 0.4,
+    refreshColour = "black"
   )
+  
 )

@@ -123,11 +123,31 @@ code {
 /* Language options size etc.*/
 
 .selectize-control.multi .selectize-input > div {
-font-size: 30px;
-height: 40px;
-padding-top: 15px;
-padding-bottom: 30px;
+  font-size: 30px;
+  height: 40px;
+  padding-top: 15px;
+  padding-bottom: 30px;
 }
+
+/* About-modal */
+.about_modal {
+  border-radius: 40px;
+  background-color: black;
+}
+
+
+/* About-modal small text */
+
+.about_modal p {
+  font-size: 2em;
+}
+
+/* About-modal big text */
+
+.about_modal h2 {
+  font-size: 4em;
+}
+
 
 /* Custom colours for each programming language option */
 

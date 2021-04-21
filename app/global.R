@@ -1,21 +1,33 @@
 # Packages ----------------------------------------------------------------
 
 suppressPackageStartupMessages({
+  
+  # Shiny-related packages
   library(shiny)
   library(shinyjs)
   library(shinyWidgets)
+  library(shinydisconnect)
+  library(shinycssloaders)
+  library(shinyalert)
+  
+  # Data wrangling and visualising
   library(readr)
   library(dplyr)
   library(ggplot2)
+  
+  # D3 in R
   library(r2d3)
-  library(shinycssloaders)
+  
+  # Python in R
   library(reticulate)
+  
 })
 
 
 # Source plotting scripts -------------------------------------------------
 
 source("plots/r_plots.R")
+
 source_python("plots/python_plots.py")
 
 # Data --------------------------------------------------------------------

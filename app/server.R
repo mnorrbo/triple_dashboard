@@ -43,11 +43,9 @@ output$ggplot_barplot <- renderPlot({
 
 
 output$seaborn_barplot <- renderImage({
-
-
-    make_python_barplot(filtered_bar_data())
-
   
+  make_python_barplot(filtered_bar_data())
+
   pfad <- "www/seaborn_barplot.png"
   list(src = pfad,
        contentType = 'image/png',
@@ -108,4 +106,24 @@ output$d3_lineplot <- renderD3({
     shinyjs::toggle(id = "hidden_div",
                     anim = TRUE)
   })
+
+
+  observeEvent(input$about, {
+    shinyalert("About", 
+               "\n Contains some stuff \n
+               Some other stuff \n
+               more stuff \n
+               more stuff \n
+               more stuff \n \n",
+               imageUrl = "icon.png",
+               size = "l",
+               animation = FALSE,
+               closeOnClickOutside = TRUE,
+               closeOnEsc = TRUE,
+               showConfirmButton = FALSE,
+               imageWidth = 300,
+               imageHeight = 300,
+               className = "about_modal")
+  })
+
 }
