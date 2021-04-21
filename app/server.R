@@ -114,8 +114,7 @@ output$d3_lineplot <- renderD3({
       "\n Contains some stuff \n
       Some other stuff \n
       more stuff \n
-      more stuff \n
-      more stuff \n \n",
+      more stuff \n",
       imageUrl = "icon.png",
       size = "l",
       animation = FALSE,

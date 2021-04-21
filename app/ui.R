@@ -162,7 +162,7 @@ ui <- fluidPage(
     column(
       6,
       align = "left",
-      actionButton("about", h3("About this app"))
+      actionButton("about", tags$b("Want to know more?"))
     ),
     
     column(
@@ -170,13 +170,13 @@ ui <- fluidPage(
       align = "right",
       HTML(
         '<a href="https://github.com/mnorrbo">
-            <img src="github_logo.png" alt="Link to my GitHub" style="width:7%;height:7%;">
+            <img src="github_logo.png" alt="Link to my GitHub" style="width:12%;height:12%;">
             </a>'
       ),
       
       HTML(
         '<a href="https://twitter.com/MandyNorrbo">
-            <img src="twitter_logo.png" alt="Link to my Twitter" style="width:5%;height:5%;">
+            <img src="twitter_logo.png" alt="Link to my Twitter" style="width:10%;height:10%;">
             </a>'
       )
     )

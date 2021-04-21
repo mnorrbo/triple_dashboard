@@ -4,23 +4,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Contrail+One&family=Roboto&display=swap&family=Inconsolata&display=swap');
 
 :root {
-  --primary-color: #FFEEED;
-  --primary-color-border: #E3D2D1;
-  --primary-color-active: #FFC2BF;
-  --primary-color-border-active: #DEA7A4;
-  --secondary-color: #FFFFFF;
-  --tertiary-color: #F6F6F6;
-  --text-color: #4A154B; 
+  --primary-color: #2f2a3a;
+  --secondary-color: #c9bfc9;
+  --tertiary-color: #f8f8f6;
+  --button-text-color: #9b959b;
+  --button-color: #2f2a3a;
+  --button-color-border: #000000;
+  --button-color-active: #000000;
+  --button-color-border-active: #000000;
+  --heading-color: #000000;
+  --text-color: #000000;
+  --code-background-color: #c9bfc9;
 }
 
 h1 {
   font-family: 'Contrail One', cursive;
-  color: var(--text-color);
+  color: var(--heading-color);
   font-size: 100px;
 }
 
 h3 {
-  font-family: 'Roboto', sans-serif;
   color: var(--text-color);
   font-size: 30px;
 }
@@ -35,8 +38,8 @@ body {
 code {
     padding: 2px 4px;
     font-size: 90%;
-    color:#F6F6F6;
-    background-color: var(--text-color);
+    color: var(--text-color);
+    background-color: var(--code-background-color);
     border-radius: 4px;
 }
 
@@ -60,32 +63,32 @@ code {
 
 
 
-/* Label for D3, ggplot, seaborn choice */
+/* Label for D3, ggplot, seaborn choice & about button */
 
 .control-label{
   font-size: 30px;
-  color: var(--text-color);
-  background-image: none;
+  color: var(--button-text-color);
+  background-image: none
 }
 
 
-/* D3, ggplot or seaborn button */
+/* D3, ggplot or seaborn, & about button */
 
 .btn-default {
     font-size: 30px;
     font-family: 'Inconsolata', monospace;
-    color: var(--text-color);
-    background-color: var(--primary-color);
-    border-color: var(--primary-color-border);
+    color: var(--button-text-color);
+    background-color: var(--button-color);
+    border-color: var(--button-color-border);
     border-radius: 18px;
 }
 
 
 .btn-group-vertical>.btn.active, .btn-group-vertical>.btn:active, .btn-group-vertical>.btn:focus, .btn-group-vertical>.btn:hover, .btn-group>.btn.active, .btn-group>.btn:active, .btn-group>.btn:focus, .btn-group>.btn:hover {
-    color: var(--text-color);
-    background-color: var(--primary-color-active);
+    color: var(--button-text-color);
+    background-color: var(--button-color-active);
     background-image: none;
-    border-color: var(--primary-color-border-active);
+    border-color: var(--button-color-border-active);
     box-shadow: none;
 }
 
@@ -94,15 +97,15 @@ code {
 
 
 #toggleOptions {
-  color: var(--text-color);
-  background-color: var(--primary-color);
-  border-color: var(--primary-color-border);
+  color: var(--button-text-color);
+  background-color: var(--button-color);
+  border-color: var(--button-color-border);
 }
 
 #toggleOptions:hover {
-  color: var(--text-color);
-  background-color: var(--primary-color-active);
-  border-color: var(--primary-color-border-active);
+  color: var(--button-text-color);
+  background-color: var(--button-color-active);
+  border-color: var(--button-color-border-active);
 }
 
 /* Background for strip with language options*/
@@ -128,7 +131,7 @@ code {
 .option:hover {
   background: var(--tertiary-color);
   border: #e0e0e0;
-  color: var(--primary-color-active);
+  color: var(--button-color-active);
 }
 
 /* Language options size etc.*/
@@ -140,24 +143,41 @@ code {
   padding-bottom: 30px;
 }
 
-/* About-modal */
+
+#about {
+  border: none;
+  background: none;
+  color: var(--tertiary-color);
+}
+
+#about:hover {
+  border:none;
+  background: none;
+  color: var(--secondary-color);
+}
+
+
+/* About pop-up */
 .about_modal {
   border-radius: 40px;
   background-color: black;
 }
 
-
-/* About-modal small text */
-
-.about_modal p {
-  font-size: 2em;
-}
-
-/* About-modal big text */
+/* About pop-up big text */
 
 .about_modal h2 {
   font-size: 4em;
+  color: var(--tertiary-color);
 }
+
+/* About pop-up small text */
+
+.about_modal p {
+  font-size: 2em;
+  color: var(--tertiary-color);
+}
+
+
 
 
 /* Custom colours for each programming language option */
