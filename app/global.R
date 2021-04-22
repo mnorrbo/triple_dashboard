@@ -32,14 +32,15 @@ source_python("plots/python_plots.py")
 
 # Data --------------------------------------------------------------------
 
-popularity_df <- read_csv("clean_data/language_popularity.csv", 
+popularity_df <- read_csv("clean_data/language_popularity.csv",
                           col_types = cols())
 
 
 # Create choice vectors for UI input --------------------------------------
 
 language_choices <- popularity_df %>% 
-  distinct(language) %>% 
+  distinct(language) %>%
+  # selected subset of languages
   filter(language %in% c(
     "C/C++",
     "C#",
@@ -56,3 +57,17 @@ language_choices <- popularity_df %>%
     "Swift"
   )) %>% 
   pull(language)
+
+
+# Text for About modal ----------------------------------------------------
+
+about_text <- 
+  "This app was created as a personal project to expand my 
+  <br> Shiny, data viz and CSS skills. 
+  <br> <br>
+  The data used in this app comes from
+  <a href = 'https://www.kaggle.com/muhammadkhalid/most-popular-programming-languages-since-2004'> Muhammad Khalid </a> 
+  on Kaggle, who
+  <br> obtained it from the <a href = https://pypl.github.io/PYPL.html>PYPL index</a>, which ranks programming languages
+  <br> by how often language tutorials are searched on Google.
+  <br>"

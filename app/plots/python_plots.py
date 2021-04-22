@@ -1,3 +1,6 @@
+
+# Dependencies & options ---------------------------------------------
+
 import pandas as pd
 import seaborn as sns
 from matplotlib.pyplot import figure
@@ -6,6 +9,8 @@ import matplotlib as mpl
 mpl.rcParams.update({'figure.max_open_warning': 0})
 
 figure(figsize=(15, 5))
+
+# Palette for both plots ---------------------------------------------
 
 palette = {
   "C/C++": "#00599C",
@@ -20,13 +25,24 @@ palette = {
   "Ruby": "#B01E00",
   "Rust": "#000000",
   "Scala": "#DE3424",
-  "Swift": "#E94F37"}
-  
+  "Swift": "#E94F37"
+}
 
+
+# Function to create bar plot ---------------------------------------------
 
 def make_python_barplot(data_input):
   ordered_data = data_input.sort_values("relative_perc", ascending = False).language
-  bplot = sns.barplot(x = "relative_perc", y = "language", data = data_input, ci = False, orient = "h", order = ordered_data, palette = palette, saturation=1)
+  bplot = sns.barplot(
+    x = "relative_perc",
+    y = "language",
+    data = data_input, 
+    ci = False, 
+    orient = "h", 
+    order = ordered_data, 
+    palette = palette, 
+    saturation = 1
+  )
   bplot.spines['right'].set_visible(False)
   bplot.spines['top'].set_visible(False)
   bplot.spines['left'].set_visible(False)
@@ -39,8 +55,17 @@ def make_python_barplot(data_input):
   bplot.get_figure().savefig("www/seaborn_barplot.png", bbox_inches = "tight", dpi = 600, transparent = True)
   bplot.get_figure().clf()
 
+
+# Function to create line plot --------------------------------------------
+
 def make_python_lineplot(data_input):
-  lplot = sns.lineplot(data = data_input, x = "year", y = "mean_yearly_pop", hue = "language", palette = palette)
+  lplot = sns.lineplot(
+    data = data_input,
+    x = "year",
+    y = "mean_yearly_pop",
+    hue = "language",
+    palette = palette
+  )
   leg = lplot.legend_
   leg.set_title(None)
   leg.get_frame().set_linewidth(0.0)
